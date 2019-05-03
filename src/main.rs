@@ -4,7 +4,6 @@ extern crate hyper_tls;
 extern crate yup_oauth2;
 extern crate google_testing1;
 use google_testing1::TestMatrix;
-use google_testing1::{Result, Error};
 use std::default::Default;
 use hyper::rt;
 use hyper::Client;
@@ -40,15 +39,13 @@ fn doit() -> impl Future<Item=(), Error=()> {
     // You can configure optional parameters by calling the respective setters at will, and
     // execute the final call using `doit()`.
     // Values shown here are possibly random and not representative !
-    let fut = hub.projects().test_matrices_create(req, "projectId")
+    hub.projects().test_matrices_create(req, "projectId")
         .request_id("sed")
         .doit().map(|result| {
             println!("Got result! {:?}", result);
         }).map_err(|err| {
             println!("Got err! {:?}", err);
-        });
-    rt::spawn(fut);
-    futures::future::ok(())
+        })
 }
 
 fn main() {
