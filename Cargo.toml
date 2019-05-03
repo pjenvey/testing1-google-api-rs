@@ -1,0 +1,15 @@
+[package]
+name = "testing1-google-api-rs"
+version = "0.1.0"
+authors = ["Donovan Preston <donovanpreston@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+futures = "0.1"
+google-testing1 = { path = "../google-apis-rs/gen/testing1" }
+hyper = "0.12"
+hyper-tls = "0.3"
+serde = "1.0"
+serde_json = "1.0"
+tokio = "0.1"
+yup-oauth2 = { git = "https://github.com/fzzzy/yup-oauth2.git", branch = "pull-from-thebiggerguy" }
